@@ -1,0 +1,6 @@
+# ignored files
+*.Rproj
+.Rbuild*
+.Rproj*
+.Rhistory
+Read-and-delete-me
