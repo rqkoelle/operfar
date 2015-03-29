@@ -1,0 +1,13 @@
+Package: operfar
+Type: Package
+Title: Operational ANS Performance at Airports
+Version: 0.0.1
+Date: 2015-03-29
+Authors@R: person("Rainer", "Koelle", email = "rainer.koelle@eurocontrol.int",
+                  role = c("aut", "cre"))
+Description: The operfar package bundles transformations, functions,
+    and visualisations for the operational performance review
+    and establishment of related reports.
+License: MIT
+LazyData: true
+Imports: dplyr

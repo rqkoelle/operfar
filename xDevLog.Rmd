@@ -1,0 +1,93 @@
+---
+title: "xDevLog"
+author: "RQ"
+date: "Sunday, March 29, 2015"
+output: html_document
+---
+Development Log - *operfar* Package
+======================================
+Introduction
+------------
+This R Markdown document lists the basis development steps.
+The workflow follows broadly
+
+* [Hadley Wickham's book 'R Packages'](http://r-pkgs.had.co.nz/);
+* [Hilary Parker's blogpost on writing a package from scratch](http://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/); and
+* another source.
+
+The project was launched on March 29th, 2015.   
+It is planned to further develop the package and an associated "manual" in small (incremental) steps.
+
+Step 0 - Setting up the environment
+-----------------------------------
+note: previously installed: devtools
+
+1. in RStudio
+    + open new project
+    + create new directory (or choose existing one)
+    + create R Package
+    + key in package name and click "create"
+2. minimum package structure
+    * R/ directory for R 
+    * man/ directory for documentation (?!?)
+    * DESCRIPTION file
+    * NAMESPACE file
+3. initial tweaks
+    * create data/ directory
+    * update DESCRIPTION file
+    * use Authors@R tag 
+    * add LazyData: true
+    * add licence
+        if MIT create additional LICENSE file
+        with minimum
+        YEAR: <Year or years when changes have been made>
+        COPYRIGHT HOLDER: <Name of the copyright holder>
+4. configure Build Options
+    * Build >> Build Tool Options >> Packrat
+    --> installs RTools
+    * Build Tool Options >> Generate Documentation with Roxygen >> Configure --> select all options
+
+note: include dependencies in DESCRIPTION
+run devtools::use_package("packagename") for imports
+    devtools::use_package("packagename", "Suggests") for suggests
+    
+    if required add (manually) versioning: dplyr (>= 0.3.0.1)
+    best practice: always put a minimum version!
+
+Step 0.a - Set-up Git
+---------------------
+1. create new repo on github
+1. launch git shell
+    + cd into local package directory
+    + initialise local repo: git init
+    + set-up link with github: 
+        git remote add origin https//github.com/usrname/repo-name.git
+
+Step 0.b - Development / Documentation Cycle
+---------------------------------------------
+dummy function with roxygen comments, i.e. #'
+
+```
+#' Add together two numbers.
+#' 
+#' @param x A number.
+#' @param y A number.
+#' @return The sum of \code{x} and \code{y}.
+#' @examples
+#' add(1, 1)
+#' add(10, 1)
+add <- function(x, y) {
+   return(x + y)
+}
+```
+
+Four basic steps: 
+
+1. Add roxygen comments to your .R files.
+1. Run devtools::document() (or press Ctrl/Cmd + Shift + D in RStudio) to convert roxygen comments to .Rd files. (devtools::document() calls roxygen2::roxygenise() to do the hard work.)
+1. Preview documentation with ?.   
+1. Rinse and repeat until the documentation looks the way you want.
+
+What's Next?
+------------
+* start developing functions
