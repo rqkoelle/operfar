@@ -10,3 +10,5 @@ data specification. You will have to format your data
 accordingly.
 
 Feedback and comments are welcomed.
+
+An initial version of this project was released. This version is available at https://github.com/rqkoelle/operfar/tree/v0.0.1
